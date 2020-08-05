@@ -47,3 +47,17 @@ links_small.csv
 movies_metadata.csv
 ratings.csv
 ratings_small.csv
+Data Analytics lifecycle
+!COLABORATIVE FILTERING
+Matrix Factorization which is a method of Collaborative filtering.
+“In the case of collaborative filtering, matrix factorization algorithms work by decomposing the user-item interaction matrix into the product of two lower dimensionality rectangular matrices. One matrix can be seen as the user matrix where rows represent users and columns are latent factors. The other matrix is the item matrix where rows are latent factors and columns represent items.”-Wikipedia
+We will be working with MoiveLens Dataset, a movie rating dataset, to develop a recommendation system using the Surprise library “A Python scikit for recommender systems”.
+<h1>DATA</h1>
+ratings = pd.read_csv('data/ratings.csv')
+ratings.head()
+
+<h1>ALGORITHMS THAT CAN BE USED</h1>
+1: Normal Predictor: It predicts a random rating based on the distribution of the training set, which is assumed to be normal. It’s a basic algorithm that does not do much work but that is still useful for comparing accuracies.
+2: SVD: It got popularized by Simon Funk during the Netflix prize and is a Matrix Factorized algorithm. If baselines are not used, it is equivalent to PMF.
+3: NMF: It is based on Non-negative matrix factorization and is similar to SVD.
+4: KNN Basic: This is a basic collaborative filtering algorithm method.
