@@ -30,3 +30,7 @@ data_merged.head()
 # Calculate mean rating of all movies and printing it in decending orrder
 #grouping them by tittle & ratings mean value
 data_merged.groupby('title')['rating'].mean().sort_values(ascending=False).head()
+# creating dataframe with 'rating' count values
+ratings_count = pd.DataFrame(data_merged.groupby('title')['rating'].mean())
+ratings_count['num of ratings'] = pd.DataFrame(data_merged.groupby('title')['rating'].count())
+ratings_count.head()
