@@ -2,8 +2,11 @@
 import pandas as pd
 #importing matplotlib for data visualisation
 import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style('white')
 #importing numpy to do array calculations and handling
 import numpy as np
+
 
 #creating dataframe for rating.csv file that contains rows user id, movieid, rating, timestmp
 rating_df=pd.read_csv("../../datasets/ratings.csv")
@@ -38,3 +41,9 @@ ratings_count['num of ratings'] = pd.DataFrame(data_merged.groupby('title')['rat
 #printing raings_count head gives a clean view of mean rating of
 # each movie and total ratings given to it
 ratings_count.head()
+# plot graph of 'num of ratings column
+plt.figure(figsize =(10, 4))
+ratings_count['num of ratings'].hist(bins = 70)
+# plot graph of 'ratings' column
+plt.figure(figsize =(10, 4))
+ratings_count['rating'].hist(bins = 70)
