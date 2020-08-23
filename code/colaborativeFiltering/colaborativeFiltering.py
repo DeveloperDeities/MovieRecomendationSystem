@@ -47,3 +47,12 @@ ratings_count['num of ratings'].hist(bins = 70)
 # plot graph of 'ratings' column
 plt.figure(figsize =(10, 4))
 ratings_count['rating'].hist(bins = 70)
+# Sorting values according to
+# the 'num of rating column'
+moviemat = data_merged.pivot_table(index ='userId',columns ='title', values ='rating')
+moviemat.head()
+ratings_count.sort_values('num of ratings', ascending = False).head(10)
+# analysing correlation with similar movies
+forrestGump_user_ratings = moviemat['Forrest Gump (1994)']
+forrestGump_user_ratings.head()
+# analysing correlation with similar movies
