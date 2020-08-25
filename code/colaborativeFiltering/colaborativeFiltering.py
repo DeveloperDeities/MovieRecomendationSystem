@@ -19,7 +19,6 @@ movies_df=pd.read_csv("../../datasets/movies.csv")
 print(movies_df.head())
 print(movies_df.tail())
 # print(movies_df.iloc[2])
-
 #Checking for nan values in both dataframe
 print(rating_df.isnull().count())
 print(movies_df.isnull().count())
