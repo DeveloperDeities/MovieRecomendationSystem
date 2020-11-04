@@ -5,9 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style('white')
 #importing numpy to do array calculations and handling
-import numpy as np
-
-
+#import numpy as np
 #creating dataframe for rating.csv file that contains rows user id, movieid, rating, timestmp
 rating_df=pd.read_csv("../../datasets/ratings.csv")
 #to get all the columns of ratings.csv
@@ -21,7 +19,6 @@ movies_df=pd.read_csv("../../datasets/movies.csv")
 print(movies_df.head())
 print(movies_df.tail())
 # print(movies_df.iloc[2])
-
 #Checking for nan values in both dataframe
 print(rating_df.isnull().count())
 print(movies_df.isnull().count())
@@ -56,3 +53,13 @@ ratings_count.sort_values('num of ratings', ascending = False).head(10)
 forrestGump_user_ratings = moviemat['Forrest Gump (1994)']
 forrestGump_user_ratings.head()
 # analysing correlation with similar movies
+similar_to_forrestGump = moviemat.corrwith(forrestGump_user_ratings)
+corr_forrestGump = pd.DataFrame(similar_to_forrestGump, columns=['Correlation'])
+#corr_forrestGump.dropna(inplace=True)
+corr_forrestGump.head()
+
+# Similar movies like forrestGump
+corr_forrestGump.sort_values('Correlation', ascending=False).head(10)
+corr_forrestGump = corr_forrestGump.join(ratings_count['num of ratings'])
+corr_forrestGump.head()
+corr_forrestGump[corr_forrestGump['num of ratings'] > 100].sort_values('Correlation', ascending=False).head()
