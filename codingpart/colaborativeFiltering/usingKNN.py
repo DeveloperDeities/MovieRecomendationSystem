@@ -6,19 +6,20 @@
 
 
 import pandas as pd
-
+global finalList
+finalList=[]
 
 # In[15]:
 
 
-movies=pd.read_csv("../../datasets/movies.csv",usecols=["movieId","title"])
+movies=pd.read_csv("/root/PycharmProjects/MovieRecomendationSystem/datasets/movies.csv",encoding='utf-8')
 movies.head()
 
 
 # In[19]:
 
 
-ratings=pd.read_csv("../../datasets/ratings.csv",usecols=["userId","movieId","rating"])
+ratings=pd.read_csv("/root/PycharmProjects/MovieRecomendationSystem/datasets/ratings.csv",usecols=["userId","movieId","rating"])
 ratings.head()
 
 
@@ -72,7 +73,6 @@ from scipy.sparse import csr_matrix
 
 # In[59]:
 
-
 mat_movies=csr_matrix(movies_users.values)
 
 
@@ -106,13 +106,13 @@ def recomender(movies_name,data,n):
     distance, indices=model.kneighbors(data[idx],n_neighbors=n)
     print(distance,indices)
     for i in indices:
-        print(movies["title"][i].where(i != idx))
+        finalList.append(movies["title"][i].where(i != idx))
 
 
 # In[64]:
 
-
-recomender('toy story',mat_movies,10)
+from GUI.gui import toBesearched
+recomender(toBesearched.get(),mat_movies,10)
 
 
 # In[ ]:
