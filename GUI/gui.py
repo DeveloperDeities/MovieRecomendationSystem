@@ -1,16 +1,21 @@
-from codingpart.colaborativeFiltering.usingKNN import finalList
+from codingpart.colaborativeFiltering.usingKNN import recomender,mat_movies,stringFinal
 global toBesearched
-def fu():
 
+def close_window():
+    window.destroy()
+def fu():
     window=tkinter.Tk()
     window.geometry("600x400")
     window.title("new window")
-    from codingpart.colaborativeFiltering.usingKNN import recomender,mat_movies
     recomender(toBesearched.get(), mat_movies, 10)
-    tkinter.Label(window,text= finalList,fg="red").grid(row=10,columnspan=2)
-    tkinter.Button(window,text="exit",fg="red",command=(tkinter.END)).grid(row=11,columnspan=2)
+    tkinter.Label(window, text=stringFinal, fg="red").grid(row=10, columnspan=2)
+    tkinter.Button(window,text="exit",fg="red",command=(close_window())).grid(row=11,columnspan=2)
 import tkinter
 window=tkinter.Tk()
+filename = tkinter.PhotoImage(file = "/root/PycharmProjects/MovieRecomendationSystem/GUI/backgroud.png")
+background_label = tkinter.Label(image=filename)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
 # setting the windows size
 window.geometry("600x400")
 window.title("GUI")
