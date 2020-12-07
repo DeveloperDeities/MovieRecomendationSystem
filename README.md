@@ -10,6 +10,13 @@ Recommender System is a system that seeks to predict or filter preferences accor
 Recommender systems produce a list of recommendations in any of the two ways –
 <li>Content-based filtering: Content-based filtering approaches uses a series of discrete characteristics of an item in order to recommend additional items with similar properties. Content-based filtering methods are totally based on a description of the item and a profile of the user’s preferences. It recommends items based on the user’s past preferences(supervised learning).
 <li>Collaborative filtering: Collaborative filtering approaches build a model from the user’s past behaviour (i.e. items purchased or searched by the user) as well as similar decisions made by other users. This model is then used to predict items (or ratings for items) that user may have an interest in(unsupervised learning).
+<h1>Aim and Scope of the project:</h1>
+This Application allows us to sort out some of our
+favourite movies from the movies highly rated by critics and recommend that movie
+to us. Demand of this app nowadays is very high because of variation of choices of
+individual in the type of movies they like.
+  
+
 <h1>Dependencies</h1>
 <ul>
 <li>Python >=3.5</li>
